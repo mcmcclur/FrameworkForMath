@@ -12,7 +12,7 @@ To use macro, you type
 
     tex`latex_snippet`
 
-to produce in mathematics or
+to produce inline mathematics or
 
     tex.block`latex_snippet`
 
@@ -39,7 +39,7 @@ Again, the `tex` macro integrates very well into Javascript making it easy to in
 
 <div class="card">
 
-### Typsetting LaTeX chosen from a menu
+### Dynamic typesetting with the tex macro
 
 ```js
 let math_string = view(Inputs.select([

@@ -1,0 +1,9 @@
+@import url("observablehq:default.css");
+@import url("observablehq:theme-air.css");
+
+blockquote {
+  background: #efefef;
+  padding: 1px 0px 1px 10px;
+  border-radius: 4px;
+  border: solid 1px #ddd;
+}

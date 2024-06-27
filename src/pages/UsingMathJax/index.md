@@ -20,14 +20,14 @@ After doing so, those `script` tags are placed in the resulting HTML file's head
 <div class="card">
 
 If $f(x) = e^{-x^2}$, then
-$$\int_{-\infty}^{\infty} f(x) \, dx = \sqrt{\pi}.$$
+$$\int_{-\infty}^{\infty} f(x) \ dx = \sqrt{\pi}.$$
 
 </div>
 
 like so:
 
     If $f(x) = e^{-x^2}$, then
-    $$\int_{-\infty}^{\infty} f(x) \, dx = \sqrt{\pi}.$$
+    $$\int_{-\infty}^{\infty} f(x) \ dx = \sqrt{\pi}.$$
 
 While this output *looks* like that [produced by KaTeX](./UsingKaTex/), it's much more interactive. If you simply click on it, you should get a zoomed version. If you control-click, you pull up a contextual menu with more options. This is largely why I prefer MathJax.
 
@@ -61,13 +61,13 @@ import {import_mathjax} from '../../common_components/import_mathjax.js';
 const MathJax = import_mathjax();
 ```
 
-When imported this way, it is *not* necessary to to include the script tags in the head of the document; MathJax will automatically typeset <code>$dollar$,</code> delimited snippets. In addition, tough, we now have access to the MathJax object for programmatic use, if desired.
+When imported this way, it is *not* necessary to to include the script tags in the head of the document; MathJax will automatically typeset <code>$dollar$,</code> delimited snippets. In addition, though, we now have access to the MathJax object for programmatic use, if desired.
 
 ## Programmatic use
 
 Since we've imported MathJax and stored the resulting object in a variable, cleverly named `MathJax`, we can use it programmatically.As a simple example, the drop down menu in the interactive example below specifies a LaTeX snippet; that LaTeX snippet is then typeset using MathJax.
 
-<div class="card">
+<div class="card collapse">
 
 ### Dynamic typesetting with MathJax
 
@@ -75,28 +75,30 @@ Since we've imported MathJax and stored the resulting object in a variable, clev
 let math_string = view(Inputs.select([
   String.raw`x^2`,
   String.raw`\sin(x^2)`,
-  String.raw`\cos(x^3)`,
-  String.raw`\frac{1}{\sqrt{1-x^2}}`
-], {label: "f(x):"}))
+  String.raw`\frac{1}{\sqrt{1-x^2}}`,
+  String.raw`\frac{1}{\sqrt{2\pi}}\int_0^x e^{-\chi^2/2} \, d\chi`
+], {label: tex`f(x):`}))
 ```
 ```js
 MathJax.tex2svgPromise(`f(x) = ${math_string}`).then(p => p)
 ```
-
-</div>
-
-After the import, the above demo was generated using the following Javascript blocks.
-
-    ```js
+    // Code block one to generate the dropdown
     let math_string = view(Inputs.select([
       String.raw`x^2`,
       String.raw`\sin(x^2)`,
       String.raw`\cos(x^3)`,
       String.raw`\frac{1}{\sqrt{1-x^2}}`
     ], {label: "f(x):"}))
-    ```
-    ```js
-    MathJax.tex2svgPromise(`f(x) = ${math_string}`).then(p => p)
-    ```
+
+    // Code block two to process the LaTeX input
+    display(MathJax.tex2svgPromise(`f(x) = ${math_string}`).then(p => p))
+
+</div>
+
 
 MathJax loads asynchronously and, as a result, is generally a little trickier to use than KaTeX. In the above example, we use MathJax's `tex2svgPromise`, which waits until all components are loaded before running.
+
+```js
+import {collapse_code} from '../../common_components/collapse_code.js'
+collapse_code()
+```

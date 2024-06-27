@@ -7,3 +7,16 @@ blockquote {
   border-radius: 4px;
   border: solid 1px #ddd;
 }
+
+details {
+  margin: 15px;
+}
+
+#splashville {
+  width: 650px;
+  height: 120px;
+  margin-top: 20px;
+}
+/* .katex-display {
+  margin: 0 !important;
+} */

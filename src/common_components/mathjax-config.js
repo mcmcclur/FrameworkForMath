@@ -14,6 +14,9 @@ window.MathJax = {
       mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/'
     }
   },
+  chtml: {
+    fontURL: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/output/chtml/fonts/woff-v2/'
+  }
   // // If you want to do something other than just typeset
   // // $this$ $$stuff$$, you can use the startup.pageReady hook.
   // startup: {

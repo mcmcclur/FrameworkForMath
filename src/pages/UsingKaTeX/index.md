@@ -1,5 +1,5 @@
 ---
-head: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">'
+head: '<link rel="icon" href="../../observable.png" type="image/png" sizes="32x32"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">'
 ---
 
 # Using KaTeX
@@ -19,7 +19,7 @@ Thus, to write
 
 If $f(x) = e^{-x^2}$, then
 $$
-\int_{-\infty}^{\infty} f(x) \, dx = \sqrt{\pi}.
+\int_{-\infty}^{\infty} f(x) \ dx = \sqrt{\pi}.
 $$
 
 </div>
@@ -27,7 +27,7 @@ $$
 We simply type
 
     If $f(x) = e^{-x^2}$, then
-    $$\int_{-\infty}^{\infty} f(x) \, dx = \sqrt{\pi}.$$
+    $$\int_{-\infty}^{\infty} f(x) \ dx = \sqrt{\pi}.$$
 
 ## Importing KaTeX
 
@@ -55,7 +55,7 @@ There's also a KaTeX stylesheet; the easiest way to use it to to include the fol
 While not quite as automatic as Observable's `tex` macro, KaTeX has a simple API that allows programmatic use. As a simple example, the drop down menu in the interactive example below specifies a LaTeX snippet; that LaTeX snippet is then typeset using KaTeX.
 
 
-<div class="card">
+<div class="card collapse">
 
 ### Dynamic typesetting with KaTeX
 
@@ -77,24 +77,26 @@ katex.render(`f(x) = ${math_string}`, div, {
 display(div)
 ```
 
-</div>
-
-The above demo was generated with the following Javascript blocks:
-
-    ```js
+    // Code block one to generate the dropdown
     let math_string = view(Inputs.select([
       String.raw`x^2`,
       String.raw`\sin(x^2)`,
       String.raw`\frac{1}{\sqrt{1-x^2}}`,
       String.raw`\frac{1}{\sqrt{2\pi}}\int_0^x e^{-\chi^2/2} \, d\chi`
     ], {label: tex`f(x):`}))
-    ```
 
-    ```js
+    // Code block two to process the LaTeX input
     let div = document.createElement("div");
     katex.render(`f(x) = ${math_string}`, div, {
         throwOnError: false,
         displayMode: true
     });
     display(div)
-    ```
+
+</div>
+
+
+```js
+import {collapse_code} from '../../common_components/collapse_code.js'
+collapse_code()
+```

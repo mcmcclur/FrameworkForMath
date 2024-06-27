@@ -37,7 +37,8 @@ you'd type
 
 Again, the `tex` macro integrates very well into Javascript making it easy to interpret LaTeX snippets programmatically. As a simple example, the drop down menu in the interactive example below specifies a LaTeX snippet; that LaTeX snippet is then typeset using `tex.block`.
 
-<div class="card">
+
+<div class="card collapse">
 
 ### Dynamic typesetting with the tex macro
 
@@ -54,21 +55,24 @@ let math_string = view(Inputs.select([
 tex.block`f(x) = ${math_string}`
 ```
 
-</div>
-
-The above demo was generated with the following Javascript cells:
-
-    ```js
-    // Generate the dropdown
+    // Code block 1 to tenerate the dropdown
     let math_string = view(Inputs.select([
       String.raw`x^2`,
       String.raw`\sin(x^2)`,
       String.raw`\frac{1}{\sqrt{1-x^2}}`,
       String.raw`\frac{1}{\sqrt{2\pi}}\int_0^x e^{-\chi^2/2} \, d\chi`
     ], {label: tex`f(x):`}))
-    ```
 
-    ```js
-    // Interpret the dropdown
+
+    // Code block two to interpret the dropdown
     tex.block`f(x) = ${math_string}`
-    ```
+
+
+</div>
+
+The above demo was generated with the following Javascript cells:
+
+```js
+import {collapse_code} from '../../common_components/collapse_code.js'
+collapse_code()
+```

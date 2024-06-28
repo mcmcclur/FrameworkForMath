@@ -82,7 +82,7 @@ display(container.node())
 
 ## Tick labels
 
-[unicode tick labels](../Plot/#unicode_tick_labels)
+Finally, we might want to display are tick labels using LaTeX. It's certainly a bit more work than [unicode tick labels](../Plot/#unicode_tick_labels) but looks quite nice once it's done.
 
 <div class="card collapse">
 
@@ -169,20 +169,20 @@ container
   .attr("class", "y-tick-label")
   .style("position", "absolute")
   .style("right", `${x_scale.apply(0) + 5}px`)
-  .style("top", (n) => `${y_scale.apply(n) - 16}px`)
+  .style("top", (n) => `${y_scale.apply(n) - 14}px`)
   .style("padding", "2px")
-  .append((n) => tex`\footnotesize ${n}`);
+  .append((n) => tex`${n}`);
 
 display(container.node());
 
 
 function label(n) {
   if (Math.abs(n) > 1) {
-    return tex`\footnotesize ${n}\pi`;
+    return tex` ${n}\pi`;
   } else if (n == -1) {
-    return tex`\footnotesize -\pi`;
+    return tex` -\pi`;
   } else if (n == 1) {
-    return tex`\footnotesize \pi`;
+    return tex` \pi`;
   } else {
     return tex` `;
   }

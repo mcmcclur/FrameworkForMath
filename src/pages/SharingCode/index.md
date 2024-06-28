@@ -1,3 +1,7 @@
+---
+style: "../../style.css"
+---
+
 # Sharing code
 
 One reason to really love the Observable Notebook as a programming environment is the prominent role played by the *display* of code. The code and output quite literally live together. This feature is very well suited for sharing code and makes for a nice educational environment as well.
@@ -8,10 +12,9 @@ Observable Framework, by contrast is designed to create polished, complete, stan
 
 It's clear that Observable encourages the use of Github to share code. All [their examples](https://github.com/observablehq/framework/tree/main/examples) are stored in Framework's main Github repository and, if you navigate directly to one of the examples, you'll find a link back to that example's code on Github.
 
-Github is surely *the* tool of choice to share, disseminate, and collaborate on code these days. The full code for this project can be found on GitHub:
+Github is surely *the* tool of choice to share, disseminate, and collaborate on code these days. The full code for this project, in fact, can be found on GitHub:
 
-http://...
-
+> https://github.com/mcmcclur/FrameworkForMath
 
 When you're trying to explain short, specific pieces of code, though, a pointer to a repository for a full fledged project is possibly overkill.
 

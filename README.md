@@ -1,11 +1,10 @@
 # Observable Framework for Mathematicians
 
-This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
+Repository for [*Observable Framework for Mathematicians*](https://mcmcclur.observablehq.cloud/framework-for-math/).
 
-```
-npm run dev
-```
+To run your own local copy, download the code, `cd` into the `FrameworkForMath` folder, then run
 
-Then visit <http://localhost:3000> to preview your project.
+    npm install
+    npm run dev
 
-Will put the project here: at-some-point.
+Edit and have fun with math in Observable Framework!

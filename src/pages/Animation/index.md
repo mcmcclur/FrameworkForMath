@@ -53,7 +53,9 @@ Things are a bit trickier, though, if you'd like to incorporate a start/stop mec
 // on `running` so it doesn't reset when `running`
 // changes value:
 const global = ({ t: 10 * Math.random() });
+```
 
+```js
 // A generator function that restarts when `running`
 // changes. The value is tied to the `global` value
 // so that the value doesn't reset.
@@ -63,7 +65,9 @@ const t = (function* () {
     yield global.t;
   }
 })();
+```
 
+```js
 // The checkbox.
 const running = view(Inputs.toggle({ label: "running:", value: true }));
 ```
@@ -71,12 +75,17 @@ const running = view(Inputs.toggle({ label: "running:", value: true }));
 <div id="animation"></div>
 
 ```js echo
-// // Depends on a separate cell block with the following contents:
+// // Depends on three separate cell blocks with the
+// // following contents:
+//
+// // First cell block:
 // // A global object that does *not* depend directly
 // // on `running` so it doesn't reset when `running`
 // // changes value:
 // const global = ({ t: 10 * Math.random() });
 //
+//
+// // Second cell block:
 // // A generator function that restarts when `running`
 // // changes. The value is tied to the `global` value
 // // so that the value doesn't reset.
@@ -87,7 +96,7 @@ const running = view(Inputs.toggle({ label: "running:", value: true }));
 //   }
 // })();
 //
-// // The checkbox.
+// // Final cell block - the checkbox:
 // const running = view(Inputs.toggle({ label: "running:", value: true }));
 
 
@@ -123,7 +132,7 @@ If you check the code, you'll notice that the main action occurs inside an `if` 
       /* The action! */
     }
 
-The `running` variable is defined by the toggle so that things only run when the toggle is checked.
+The `running` variable is defined by the toggle so that things only run when the toggle is checked. In addition, there's a generator cell and a global object that stores the time persistently.
 
 
 ```js
